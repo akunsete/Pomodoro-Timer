@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.Container {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.title {
+    color: rgb(57, 57, 57);
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#timerNum {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(62, 62, 62);
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.buttonContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.StartBtn {
+    cursor: pointer;
+    max-width: 75px;
+    width: 75px;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(0, 160, 0);
+    border: none;
+    border-radius: 6px;
+}
+
+.StopBtn {
+    cursor: pointer;
+    max-width: 75px;
+    width: 75px;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(160, 0, 0);
+    border: none;
+    border-radius: 6px;    
+}
+
+.RestartBtn {    
+    cursor: pointer;
+    max-width: 100px;
+    width: 100px;
+    padding: 8px;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(132, 131, 131);
+    border: none;
+    border-radius: 6px;       
+}
+
+.StartBtn:hover {
+    background-color: rgb(0, 160, 0, .75);
+}
+
+.StopBtn:hover {
+    background-color: rgb(160, 0, 0, .75);
+}
+
+.RestartBtn:hover {
+    background-color: rgb(132, 131, 131,.75);
+}
