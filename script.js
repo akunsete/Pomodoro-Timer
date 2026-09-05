@@ -23,7 +23,7 @@ startBtn.addEventListener("click", function(){
             audipFah.loop = true;
             audipFah.play();            
         } else if(time > 0 && stopBtn === false && startButton == true) {
-            console.log(time--)
+            time--;
             startTime();             
         } else {
             setInterval(countdown, 1000);
@@ -40,20 +40,17 @@ document.getElementById("StopBtn").addEventListener("click", function(){
         let audipFah = document.getElementById("fahh");
         audipFah.loop = false;
         audipFah.pause();    
-        stopBtn = true;   
-        console.log("WORK1");           
+        stopBtn = true;                    
     } else if(stopBtn === true && startButton == false) {
         startButton = false;
         startBtn.disabled = false;
         let audipFah = document.getElementById("fahh");
         audipFah.loop = false;
         audipFah.pause();    
-        stopBtn = true; 
-        console.log("WORK2");
+        stopBtn = true;         
     }
     else {
-        stopBtn = false;
-        console.log("WORK3");
+        stopBtn = false;        
     };
 });
 
