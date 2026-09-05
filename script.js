@@ -1,6 +1,8 @@
 const titleTimer = document.getElementById("timerNum");
+const startBtn = document.getElementById("StartBtn");
 let time = 1500;
 let stopBtn = false;
+let startButton = false;
 
 function startTime() {
     let minutes = Math.floor(time/60);
@@ -9,31 +11,53 @@ function startTime() {
     titleTimer.textContent = timer
 }
 
-document.getElementById("StartBtn").addEventListener("click", function(){
+startBtn.addEventListener("click", function(){
+    
+    startBtn.disabled = true    
     stopBtn = false;
+    startButton = true;
     let countdown = setInterval(() => {           
-        if(time === 0 && stopBtn === false) {
+        if(time === 0 && stopBtn === false && startButton == true) {                                    
+            startBtn.disabled = true;
             let audipFah = document.getElementById("fahh");
             audipFah.loop = true;
             audipFah.play();            
-        } else if(time > 0 && stopBtn === false) {
-            time--;         
+        } else if(time > 0 && stopBtn === false && startButton == true) {
+            console.log(time--)
             startTime();             
-        };
+        } else {
+            setInterval(countdown, 1000);
+            clearInterval(countdown);
+        }
     },1000);
 });
 
 document.getElementById("StopBtn").addEventListener("click", function(){
-    if(time <= 0 && stopBtn === false) {
+    stopBtn = true;
+    if(stopBtn === true && startButton == true) {
+        startButton = false;
+        startBtn.disabled = false;
         let audipFah = document.getElementById("fahh");
         audipFah.loop = false;
         audipFah.pause();    
-        stopBtn = true;              
-    } else {
-        stopBtn = true;
+        stopBtn = true;   
+        console.log("WORK1");           
+    } else if(stopBtn === true && startButton == false) {
+        startButton = false;
+        startBtn.disabled = false;
+        let audipFah = document.getElementById("fahh");
+        audipFah.loop = false;
+        audipFah.pause();    
+        stopBtn = true; 
+        console.log("WORK2");
+    }
+    else {
+        stopBtn = false;
+        console.log("WORK3");
     };
 });
 
 document.getElementById("RestartBtn").addEventListener("click", function() {
     time = 1500;
+    titleTimer.textContent = "25:00";
 });
